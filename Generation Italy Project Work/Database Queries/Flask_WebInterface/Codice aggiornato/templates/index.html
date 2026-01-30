@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<!-- Pagina semplice che elenca le API disponibili per volatilità e rendimenti -->
+<html lang="it">
+  {% include 'head.html' %}
+
+  <body>
+    <!-- Contenitore principale centrato -->
+    <div class="contenitore-pagina">
+
+      {% include 'header.html' %}
+
+      <!-- Riquadro informativo sulla fonte dati -->
+      <div class="riquadro-info">
+        <p><strong>Fonte dati:</strong> tabella <code>market_calcoli</code> nel DB <code>projectwork_market_data</code>.</p>
+        <p class="testo-info-piccolo">Colonne: date, asset, sector, returns, vol_1m.</p>
+      </div>
+
+      <!-- Sezioni principali della dashboard -->
+      <div class="sezioni">
+
+        <!-- Sezione 1: link alle serie di volatilità per categoria -->
+        <section class="scheda-sezione">
+          <header class="intestazione-sezione">
+            <div>
+              <h5 class="titolo-sezione">Volatilità 1 Mese</h5>
+              <p class="sottotitolo-sezione">Valori estratti direttamente dalla tabella.</p>
+            </div>
+            <span class="etichetta etichetta-blu">vol_1m</span>
+          </header>
+
+          <div class="griglia-volatilita">
+            <div class="box-asset">
+              <h6 class="titolo-asset">Equity</h6>
+              <p class="sottotitolo-asset">S&amp;P 500, Nasdaq</p>
+              <a class="bottone-primario" target="_blank" href="/api/volatility/1m/equity?limit=100">Vedi dati</a>
+            </div>
+
+            <div class="box-asset">
+              <h6 class="titolo-asset">Metals</h6>
+              <p class="sottotitolo-asset">Gold, Silver, Platinum, Palladium</p>
+              <a class="bottone-primario" target="_blank" href="/api/volatility/1m/metals?limit=100">Vedi dati</a>
+            </div>
+
+            <div class="box-asset">
+              <h6 class="titolo-asset">Energy</h6>
+              <p class="sottotitolo-asset">Crude Oil</p>
+              <a class="bottone-primario" target="_blank" href="/api/volatility/1m/energy?limit=100">Vedi dati</a>
+            </div>
+
+            <div class="box-asset">
+              <h6 class="titolo-asset">FX</h6>
+              <p class="sottotitolo-asset">USD/CHF, EUR/USD</p>
+              <a class="bottone-primario" target="_blank" href="/api/volatility/1m/fx?limit=100">Vedi dati</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sezione 2: link ai rendimenti percentuali per singolo asset -->
+        <section class="scheda-sezione">
+          <header class="intestazione-sezione">
+            <div>
+              <h5 class="titolo-sezione">Ricavi percentuali</h5>
+              <p class="sottotitolo-sezione">Solo dati relativi alla colonna <code>returns</code>.</p>
+            </div>
+            <span class="etichetta etichetta-verde">returns</span>
+          </header>
+
+          <ul class="elenco-asset">
+            <li>
+              <span>S&P 500</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=sp500&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Nasdaq</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=nasdaq&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Gold</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=gold&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Silver</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=silver&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Platinum</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=platinum&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Palladium</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=palladium&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>Crude Oil</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=oil&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>EUR/USD</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=eur_usd&limit=50">Vedi dati</a>
+            </li>
+            <li>
+              <span>USD/CHF</span>
+              <a class="bottone-secondario" target="_blank" href="/api/data/returns?asset=usd_chf&limit=50">Vedi dati</a>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+    </div>
+  </body>
+</html>

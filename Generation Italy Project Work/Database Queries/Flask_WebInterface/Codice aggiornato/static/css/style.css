@@ -1,0 +1,199 @@
+﻿/*
+  Stile base della pagina web del progetto.
+  Qui impostiamo colori generali, font e contenitore principale,
+  in modo simile al setup iniziale del dataframe nello script di analisi.
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenitore centrale per limitare la larghezza massima del contenuto */
+.contenitore-pagina {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+/*
+  Riquadro iniziale che descrive la tabella di origine dei dati.
+  Equivale al commento introduttivo nel codice di analisi.
+*/
+.riquadro-info {
+    background-color: #e7f3ff;
+    border: 1px solid #b6d7ff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.riquadro-info p {
+    margin: 4px 0;
+}
+
+/* Testo secondario con indicazione delle colonne presenti */
+.testo-info-piccolo {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/*
+  Sezioni principali della dashboard:
+  - prima sezione: volatilità per settore
+  - seconda sezione: rendimenti percentuali per singolo asset
+*/
+.sezioni {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Carta che racchiude una singola sezione logica */
+.scheda-sezione {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 20px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Intestazione della sezione: titolo + etichetta riassuntiva */
+.intestazione-sezione {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.titolo-sezione {
+    margin: 0 0 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.sottotitolo-sezione {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Piccole etichette colorate che indicano il tipo di dato (vol_1m, returns) */
+.etichetta {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.etichetta-blu {
+    background-color: #0d6efd;
+}
+
+.etichetta-verde {
+    background-color: #198754;
+}
+
+/*
+  Griglia utilizzata nella sezione volatilità per mostrare i 4 insiemi di asset.
+  Ogni cella rappresenta un settore (Equity, Metals, Energy, FX).
+*/
+.griglia-volatilita {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+/* Box singolo per un gruppo di asset (es. tutti gli asset Metals) */
+.box-asset {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 14px 14px 12px;
+    background-color: #ffffff;
+}
+
+.titolo-asset {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sottotitolo-asset {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/*
+  Stile dei pulsanti per navigare alle API:
+  - bottone-primario: usato nella sezione volatilità
+  - bottone-secondario: usato nella sezione dei rendimenti
+*/
+.bottone-primario,
+.bottone-secondario {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.bottone-primario {
+    width: 100%;
+    color: #0d6efd;
+    border-color: #0d6efd;
+    background-color: #ffffff;
+}
+
+.bottone-primario:hover {
+    color: #ffffff;
+    background-color: #0d6efd;
+}
+
+.bottone-secondario {
+    color: #198754;
+    border-color: #198754;
+    background-color: #ffffff;
+}
+
+.bottone-secondario:hover {
+    color: #ffffff;
+    background-color: #198754;
+}
+
+/*
+  Elenco finale degli asset con rendimenti percentuali.
+  Ogni riga mostra il nome dell'asset e il link alla relativa API.
+*/
+.elenco-asset {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+}
+
+.elenco-asset li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+.elenco-asset li:last-child {
+    border-bottom: none;
+}
+
+.elenco-asset span {
+    font-size: 0.95rem;
+}
